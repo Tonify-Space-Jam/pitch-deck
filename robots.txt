@@ -6,4 +6,4 @@ Disallow: /private/
 Disallow: /*?*
 Disallow: /*/download/*
 
-Sitemap: https://Tonify-Space-Jam.github.io/pitch-deck/sitemap.xml
+Sitemap: https://Tonify-Space-Jam.github.io/sitemap.xml
