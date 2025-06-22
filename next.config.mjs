@@ -7,6 +7,8 @@ const withMDX = mdx({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath: "/pitch-deck",
+  assetPrefix: "/pitch-deck/",
   trailingSlash: true,
   images: {
     unoptimized: true,
