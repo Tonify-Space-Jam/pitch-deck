@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 
-const baseURL = "tonify-space.github.io/tonify-front";
+const baseURL = "Tonify-Space-Jam.github.io/pitch-deck";
 
 const routes = {
   "/": true,
