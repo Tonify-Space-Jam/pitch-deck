@@ -1,7 +1,5 @@
 import mdx from "@next/mdx";
 
-const isGithubPages = process.env.IS_PAGES === "true";
-
 const withMDX = mdx({
   extension: /\.mdx?$/,
   options: {},
@@ -9,8 +7,8 @@ const withMDX = mdx({
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: isGithubPages ? "/pitch-deck" : "",
-  assetPrefix: isGithubPages ? "/pitch-deck/" : "",
+  basePath: "/pitch-deck",
+  assetPrefix: "/pitch-deck/",
   trailingSlash: true,
   images: {
     unoptimized: true,
