@@ -9,6 +9,7 @@ import {
   Heading,
   Text,
   SmartLink,
+  SmartImage,
   Table,
   Button,
   Grid,
@@ -46,25 +47,70 @@ const Point = ({ children }: { children: string }) => {
   );
 };
 
-// Section wrapper
+// Section wrapper with image
 const Section = ({
   title,
   children,
   gap = 'm',
+  imageNumber,
 }: {
   title: string;
   children: ReactNode;
   gap?: 'xs' | 's' | 'm' | 'l' | 'xl';
+  imageNumber?: number;
 }) => (
   <RevealFx translateY={8} delay={0.1}>
-    <Card padding="xl" radius="xl" border="brand-alpha-medium" fillWidth>
-      <Column horizontal="center" gap={gap}>
-        <Heading variant="display-strong-m" style={{ textAlign: 'center' }}>
-          {title}
-        </Heading>
-        {children}
-      </Column>
-    </Card>
+    <div style={{ position: 'relative' }}>
+      {imageNumber && (
+        <div style={{
+          position: 'absolute',
+          top: '-60px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '120px',
+          borderRadius: '12px',
+          boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+          overflow: 'hidden',
+          zIndex: 10,
+        }}>
+          <SmartImage
+            src={`/features/${imageNumber}.png`}
+            alt={`${title} feature`}
+            aspectRatio="16/9"
+            unoptimized={true}
+          />
+        </div>
+      )}
+      <Card padding="xl" radius="xl" border="brand-alpha-medium" fillWidth style={{ position: 'relative' }}>
+        {imageNumber && (
+          <div style={{
+            position: 'absolute',
+            top: '8px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            background: 'var(--neutral-on-background-weak)',
+            borderRadius: '50%',
+            padding: '12px',
+            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+            border: '2px solid var(--brand-alpha-medium)',
+          }}>
+            <Image
+              src={`/features/${imageNumber}.svg`}
+              alt={`${title} icon`}
+              width={40}
+              height={40}
+              style={{ borderRadius: '50%' }}
+            />
+          </div>
+        )}
+        <Column horizontal="center" gap={gap} style={{ paddingTop: imageNumber ? '20px' : '0' }}>
+          <Heading variant="display-strong-m" style={{ textAlign: 'center' }}>
+            {title}
+          </Heading>
+          {children}
+        </Column>
+      </Card>
+    </div>
   </RevealFx>
 );
 
@@ -199,7 +245,7 @@ export default function PitchDeck() {
         </Column>
 
         {/* Sections */}
-        <Section title={t.problem.title} gap="xs">
+        <Section title={t.problem.title} gap="xs" imageNumber={1}>
           <Column
             horizontal="start"
             gap="xs"
@@ -211,7 +257,7 @@ export default function PitchDeck() {
           </Column>
         </Section>
 
-        <Section title={t.solution.title} gap="s">
+        <Section title={t.solution.title} gap="s" imageNumber={2}>
           <Point>{t.solution.subtitle}</Point>
           <Column
             horizontal="start"
@@ -224,7 +270,7 @@ export default function PitchDeck() {
           </Column>
         </Section>
 
-        <Section title={t.whyNow.title} gap="s">
+        <Section title={t.whyNow.title} gap="s" imageNumber={3}>
           <Column
             horizontal="start"
             gap="xs"

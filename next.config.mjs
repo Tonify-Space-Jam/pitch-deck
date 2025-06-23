@@ -5,10 +5,12 @@ const withMDX = mdx({
   options: {},
 });
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/pitch-deck",
-  assetPrefix: "/pitch-deck/",
+  basePath: isProduction ? "/pitch-deck" : "",
+  assetPrefix: isProduction ? "/pitch-deck/" : "",
   trailingSlash: true,
   images: {
     unoptimized: true,
