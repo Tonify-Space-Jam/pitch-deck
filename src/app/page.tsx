@@ -64,46 +64,47 @@ const Section = ({
       {imageNumber && (
         <div style={{
           position: 'absolute',
-          top: '-60px',
+          top: '20px',
           left: '50%',
           transform: 'translateX(-50%)',
-          width: '120px',
+          width: '400px',
           borderRadius: '12px',
           boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
           overflow: 'hidden',
-          zIndex: 10,
+          zIndex: 100,
         }}>
           <SmartImage
             src={`/features/${imageNumber}.png`}
             alt={`${title} feature`}
             aspectRatio="16/9"
             unoptimized={true}
+            // style={{ marginTop: '50px', height: 'auto' }}
           />
         </div>
       )}
       <Card padding="xl" radius="xl" border="brand-alpha-medium" fillWidth style={{ position: 'relative' }}>
-        {imageNumber && (
-          <div style={{
-            position: 'absolute',
-            top: '8px',
-            left: '50%',
-            transform: 'translateX(-50%)',
-            background: 'var(--neutral-on-background-weak)',
-            borderRadius: '50%',
-            padding: '12px',
-            boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
-            border: '2px solid var(--brand-alpha-medium)',
-          }}>
-            <Image
-              src={`/features/${imageNumber}.svg`}
-              alt={`${title} icon`}
-              width={40}
-              height={40}
-              style={{ borderRadius: '50%' }}
-            />
-          </div>
-        )}
-        <Column horizontal="center" gap={gap} style={{ paddingTop: imageNumber ? '20px' : '0' }}>
+
+          {/* // <div style={{
+          //   position: 'absolute',
+          //   top: '8px',
+          //   left: '50%',
+          //   transform: 'translateX(-50%)',
+          //   background: 'var(--neutral-on-background-weak)',
+          //   borderRadius: '50%',
+          //   padding: '12px',
+          //   boxShadow: '0 4px 12px rgba(0,0,0,0.1)',
+          //   border: '2px solid var(--brand-alpha-medium)',
+          // }}>
+          //   {/* <Image
+          //     src={`/features/${imageNumber}.svg`}
+          //     alt={`${title} icon`}
+          //     width={40}
+          //     height={40}
+          //     style={{ borderRadius: '50%', marginTop: '50px' }}
+
+          //   /> 
+          // </div> */}
+        <Column horizontal="center" gap={gap} style={{ paddingTop: imageNumber ? '200px' : '0' }}>
           <Heading variant="display-strong-m" style={{ textAlign: 'center' }}>
             {title}
           </Heading>
