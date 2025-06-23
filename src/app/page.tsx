@@ -197,7 +197,7 @@ export default function PitchDeck() {
             top: '80px',
             right: '20px',
             flexDirection: 'column',
-            gap: 'var(--space-2)',
+            gap: '5px',
             zIndex: 1000,
           }}
         >
